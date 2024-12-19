@@ -1,5 +1,5 @@
 ### <b>Basically the code behind Cinna.Bon.Zone</b>
-#### <b>This is another main site in the maiking<br> Why another one? man idk</b>
+#### <b>This is another main site in the making<br> Why another one? man idk</b>
 
 >[!WARNING]
 >Cinna.Bon.Zone is currently not finished as of now, expect incomplete or broken stuff
