@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>changelog</title>
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div id="wrapper"><div id="inner">
+
+  <article class="box">
+      <div class="content">
+        <div class="date">12/22/2024</div>
+        <div class="message">this is just the first entree, more soon. check credits for who made this one. </div>
+      </div>
+  </article>
+
+</div></div>
+
+
+<script>
+  // if your messages have a variable width (like 90% or 80vw) it'll probably be blurry if the viewport is an odd number. this is a hack i came up to help mitigate the issue
+
+  // Firefox 1.0+
+var isFirefox = typeof InstallTrigger !== 'undefined';
+
+// Chrome 1 - 79
+var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+  
+function round(N,pre) {
+  const x = Math.ceil(N / pre) * pre;
+  wrapper.style.width = x + 'px';
+  
+  if (window.innerWidth % 2 == 1){
+    if (isChrome == true) {
+      document.querySelector('#inner').style.width = round(document.querySelector('#inner').style.width)
+    } 
+    if (isFirefox == true) {
+      document.querySelector('#inner').style.marginLeft = "-0.5px"; 
+    }
+  } else {
+    document.querySelector('#inner').style.marginLeft = "0px";
+  }
+}
+
+var p = window.getComputedStyle(document.body).getPropertyValue('--p'); // get pixel multiplier
+var n = p * 2;
+
+var w = window.getComputedStyle(document.body).getPropertyValue('--wrapper-width'); // get wrapper responsive width
+
+const fn = () => {
+  const wrapper = document.querySelector('#wrapper')
+  wrapper.style.width = w;
+  const wrapperWidth = wrapper.clientWidth;
+  round(wrapperWidth,n);
+}
+
+fn()
+
+window.addEventListener('load', fn)
+window.addEventListener('resize', fn)
+</script>
+
+  </body>
+</html>
